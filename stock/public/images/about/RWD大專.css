@@ -1,0 +1,57 @@
+    /* 裝置寬度大於1000px */
+
+    @media screen and (max-width: 1000px) {
+        span {
+            font-size: 30px;
+        }
+    }
+
+
+    /* 裝置寬度大於700px小於1000px */
+
+    @media screen and (min-width:700px)and(max-width:1000px) {
+
+
+
+
+
+
+    }
+
+    /* 裝置寬度小於700px */
+    @media screen and (max-width:700px) {
+
+      
+      /* 創立理念 */
+  /* 灰色背景框框 */
+  .c2_background {
+      flex-direction: column;
+      height: 500px;
+  }
+
+  /* 創立理念 */
+  .c_text1 {
+      margin: 0 auto;
+      
+     
+  }
+
+  /* 斜底線 */
+  .c_line {
+      top: 0px;
+      left: 200px;
+      bottom: 100px;
+      
+  }
+
+  /* 內容 */
+  .c_text2 {
+     margin: 0 auto;
+     left: -200px;
+     width: 100px;
+     
+      
+  }
+}
+ 
+   

@@ -1,0 +1,467 @@
+/* 導入字型 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif !important;
+}
+
+/* BAR的主色長寬 */
+.header {
+  background-color: #0E0E0E;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 60px;
+  z-index: 99;
+}
+
+/* LOGO圖片 */
+.navbar-left a img {
+  float: left;
+  width: 60px;
+  margin-left: 5px;
+  padding: 0;
+  /* animation-name: logo;
+  animation-duration: 1s;
+  animation-iteration-count: infinite; */
+  animation: logo 5s infinite linear; ; 
+}
+/* logo 動畫設定 */
+@keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 瘋資股 */
+.navbar-left form b {
+  float: left;
+  color: #8E8E8E;
+  text-decoration: none;
+  margin: 5px 5px;
+  padding: 10px 5px;
+  font-size: 20px;
+}
+
+/* 按鈕顏色 */
+.btn {
+  background-color: #0E0E0E;
+  text-align: center;
+  color: #FFFFFF;
+  border: 0px solid white;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 15px 2px #FFFFFF;
+  box-shadow: 2px 2px 15px 2px #FFFFFF;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* 登入註冊按鈕位置顏色 */
+.navbar-right form a {
+  padding: 16px 18px;
+  float: right;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.navbar-right .login:hover {
+  background: #FFFFFF;
+  color: #0E0E0E;
+}
+.navbar-right .logout:hover {
+  background: #FFFFFF;
+  color: #0E0E0E;
+}
+
+/* 標籤觸碰底線 */
+.nav-links .links::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: rgb(236, 236, 236);
+  display: block;
+  margin: auto;
+  transition: 0.6s;
+}
+
+/* 標籤觸碰底線 */
+.nav-links .links:hover::after {
+  width: 100%;
+}
+
+/* 登出按鈕消失 */
+#logoutBtn{
+  display: none;
+}
+
+/* BAR標頭連結 */
+.navbar-right .btn {
+  float: right;
+  margin: 18px;
+  padding: 2px 25px;
+  font-size: 14px;
+}
+
+
+
+
+/* 手機螢幕顯示 */
+
+.clickbtn {
+  float: right;
+  background-color: #0e0e0e;
+  color: #ffffff;
+  margin-right: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  /* cursor: pointer; */
+}
+
+
+.clickdown {
+  position: relative;
+  display: inline-block;
+}
+
+.clickdown-content {
+  right: 0;
+  top: 60px;
+  display: none;
+  position: absolute;
+  /* background-color: #8E8E8E; */
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  min-width: 120px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /* z-index: 1; */
+}
+
+.clickdown-content a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* .clickdown a:hover {background-color: #FFFFFF;} */
+
+.show {display: block;}
+
+
+
+
+
+/* 在手機顯示下拉選單 */
+@media (max-width: 576px) {
+  .navbar-right form a{
+    display: none;
+  }
+  .navbar-right .dropdown {
+    display: none;
+  }
+  .navbar-right .clickdown{
+    display:block;
+  }
+  
+}
+
+
+/* 在小螢幕顯示下拉選單 */
+@media (min-width: 577px) {
+  .navbar-right form a {
+    display: none;
+  }
+  .navbar-right .dropdown {
+    display: block;
+  }
+  .navbar-right .clickdown{
+    display:none;
+  }
+}
+
+
+/* 在小螢幕顯示下拉選單 */
+@media (min-width: 768px) {
+  .navbar-right form a {
+    display: none;
+  }
+  .navbar-right .dropdown {
+    display: block;
+  }
+  .navbar-right .clickdown{
+    display:none;
+  }
+}
+
+/* 在大螢幕顯示方式 */
+@media (min-width: 769px) {
+  .navbar-right form .links {
+    display: block;
+  }
+  .navbar-right .dropdown {
+    display: none;
+  }
+  .navbar-right .clickdown{
+    display:none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 螢幕小畫面時顯示方式 */
+
+#mySidenav a {
+  position: absolute;
+  right: -65px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 80px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius: 5px 0 0 5px;
+}
+
+#mySidenav a:hover {
+  right: 0;
+  background-color: #8E8E8E;
+}
+
+#projects {
+  top: 60px;
+  backdrop-filter: blur(5px);
+  
+}
+
+#stock {
+  top: 120px;
+  backdrop-filter: blur(5px);
+  
+}
+
+#about {
+  top: 180px;
+  backdrop-filter: blur(5px);
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 遮罩背景 */
+.overlay {
+  /* display: none; */
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255, 255, 255, 0.247); */
+  backdrop-filter: blur(3px);
+  z-index: 98;
+}
+
+/* 登入彈跳視窗 */
+.login-popup {
+  /* display: none; */
+  z-index: 99;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(15px);
+  background-color: #8e8e8e24;
+  padding: 0px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #0E0E0E;
+}
+
+/* 關掉彈跳視窗 */
+.close-btn {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  border: 0px rgb(219, 219, 219);
+  z-index: 99;
+  cursor: pointer;
+}
+
+
+
+/* 註冊登入框及內容大小 */
+
+.form-wrap {
+  width: 320px;
+  padding: 30px 0px 0px 0px;
+  margin: auto;
+  border-radius: 30px;
+  box-shadow: 0px 1px 8px #8E8E8E;
+  -webkit-box-shadow: 0px 1px 8px #8E8E8E;
+  -moz-box-shadow: 0px 1px 8px #8E8E8E;
+  backdrop-filter: blur(5px);
+}
+
+.form-wrap .tabs {
+  overflow: hidden;
+}
+
+.form-wrap .tabs h3 {
+  float: left;
+  width: 50%;
+}
+
+.form-wrap .tabs h3 a {
+  padding: 0.5em 0;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 400;
+  backdrop-filter: blur(5px);
+  /* background-color: #8e8e8e8e; */
+  display: block;
+  /* visibility: visible; */
+  color: #666;
+}
+
+.form-wrap .tabs h3 a.active {
+  /* background-color: #8e8e8e8e; */
+  color: #fff;
+  backdrop-filter: blur(5px);
+  /* border-bottom: 3xp solid #FFFFFF; */
+}
+
+.form-wrap .tabs-content {
+  padding: 1.5em;
+}
+
+.form-wrap .tabs-content div[id$="tab-content"] {
+  display: none;
+  /* visibility: hidden; */
+}
+
+.form-wrap .tabs-content .active {
+  display: block !important;
+  /* visibility: visible !important; */
+}
+
+.signup-form label , .login-form label{
+  font-size: 20px;
+  color: #ffffff;
+}
+
+
+.form-wrap form .input {
+  width: 90%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #8E8E8E;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  background: transparent;
+}
+
+/* 註冊驗證 */
+input[type="text"]:invalid+span::after,
+input[type="password"]:invalid+span::after {
+  color: #ff0000;
+  content: "✖";
+}
+
+input[type="text"]:valid+span::after,
+input[type="password"]:valid+span::after {
+  color: #00ff2f;
+  content: "✓"
+}
+
+
+/* 忘記密碼 */
+.form-wrap form .forget a {
+  float: right;
+  margin: 5px 0px 20px 0px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+.form-wrap form .forget a:hover {
+  color: #1500ff91;
+}
+
+/* 註冊及登入按鈕大小 */
+.btn-center {
+  padding: 5px 25px;
+  margin: 20px 100px;
+}
+
+.btn:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer 底下 */
+.footer {
+  overflow: hidden;
+  background-color: #0E0E0E;
+  color: white;
+  position: fixed;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  z-index: 97;
+}
+
+/* html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 50px;
+} */

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瘋資股 - <%=title %>
+    </title>
+    <link rel="stylesheet" href="/css/article.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;400;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="article_background">
+    <%- include('login.ejs') %>
+        <!-- <img src="/images/Cancel.png" alt="" id="cancel"> -->
+        <% if(!userHave) { %>
+        <div class="centered-lock">
+            <img src="/images/Lock.png" id="lockpng"><br>
+            <span>請先登入</span><br>
+            <!-- <button id="showPopupBtn" class="btn login">登入/註冊</button> -->
+        </div>
+        <div class="articleInsideBody articleFilter">
+            <% }else { %>
+                <div class="articleInsideBody">
+                <% } %>
+
+
+            <div class="articleInsideTitle">
+                <%= title %>
+            </div>
+            <div class="insideTitleTime">
+                <%= creatTime %>
+            </div>
+            <div class="articleInsideText">
+                <%- content %>
+
+            </div>
+
+            <div class="likesArea">
+                <% if(state) { %>
+                    <button id="like" class="active">
+                        <% }else { %>
+                            <button id="like" class="dislike">
+                                <%}%>
+                                    <div class="icon">
+                                        <svg class="prime" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                            </path>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="counter" id="couter">
+                                        <%= likes %>
+                                    </div>
+                            </button>
+                            <!-- <img class="likes" src="/images/Facebook Like.png" alt="" id="likes"> -->
+                            <!-- <%# likes %> Likes -->
+            </div>
+
+            <div class="articleInsideMsg">
+                <% if (msgHave){ %>
+                    <% msg.forEach((item ,index)=> { %>
+                        <div class="msgBox">
+                            <div class="msgUser">
+                                <span style="color: #8e8e8e;"><%= index+1%>F&nbsp;</span> <%= item.username%> 
+                            </div>
+                            <div class="msgText">
+                                <%= item.message%>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="msgBox msgNo">No message.</div>
+
+
+                                <% } %>
+                                    <form class="msgInputBox" id="form" method="post">
+                                        <textarea rows="1" type="text" class="msgInput" placeholder="留言..." id="msgArea"
+                                            name="msgArea" maxlength="500"
+                                            onchange="this.value=this.value.substring(0,500)"
+                                            onkeydown="this.value=this.value.substring(0,500)"
+                                            onkeyup="this.value=this.value.substring(0,500)"></textarea>
+                                        <button type="button" class="msgBtn" id="submit">
+                                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <rect width="50" height="50" fill="url(#pattern0)" />
+                                                <defs>
+                                                    <pattern id="pattern0" patternContentUnits="objectBoundingBox"
+                                                        width="1" height="1">
+                                                        <use xlink:href="#image0_135_2411"
+                                                            transform="scale(0.0111111)" />
+                                                    </pattern>
+                                                    <image id="image0_135_2411" width="90" height="90"
+                                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEXklEQVR4nO2d24tXVRTHd2ll5SUv3aEHkXqJppBGhzBfAqPsRRISJbSHhpB66aGg8JKXpoga60GCUMsCob/ACLw/+VyUXSzLGLsolfab0cFP7FjCIX78zvmdvc/Ze5+zPvB7mTmz1t5ffmdf1l57jTGKoiiKoiiKoihKPsBU4AFgLbAZ+Ag4CnwL/AScBS7J56z8zP7uiDy7Wf7W2phawGU7AKYAS4E3RKwL+MPaOgyMAEusL9MmgKuBR4HdwG/Ux6/ALmCZbYNpKsCtwEvAd4THDjmbgFtMUwDmyev7D/ExAbwP3G5SBZgBvA6cJ37+BrYD001KAI8DP5Iep4EVJnaAOcCnpM8+YLaJEVm7xjDR+cK+kYMmJoBngA7NowOsMzEgS7amMxJS4KuAN2kPO2yfQwjdJpGvsL1ukYdpL8/XJfJyYJL2Mgk8VrXIdwK/h+5pBNhg2B1VRt0+D93DiPiskigg8ELonkXIc75Fnq1DRlf+AOb6FPrd7n4U4G2fE+BFlbRnTNt9YpQ4rdKb11xFvl7H5sLnkdNchF5VzI8CrHQR2gbAlWLsLSvyNcC5gk4U/lvq9Z+0Azyk6vXNUBmh1+PnhGLUHgkBN8pnkcR2xxO242+nKPkOrkkq9/WwPyDPpGanFzvLCH3MwWGnV6f+17nxhOzkcSTPRzenJxwcjnra3o9GZiePr4v6yTo84+Cw8DE9sDghO3mMFfWTdejyChVOrQKmJ2Qnj/GifrIOXfI0+unYzITs5NEp6ifr8BcHh7G98oOe7FQydHzh4HBHH37eS8hOHl8V9ZN1aK86lMWO7wMFfNwv8dxU7FSyvPOxYRnI6dTPCdrxvmF5FnfGZV26WGZz+xmS13MiYTtet+ALPThuG0NlhL4W+DN0yxsfJhWx94ZufUJ8WEpkEfqJ0K1PiCddhL5OrgIrvRmzWpUWWsTWdIN8NjmJLELfnMhdwVBMeLsQatOegnUjft7yInLmW6150d0TZ27yJrSI/XQXR21n2KvIGbH3h+5ZROyv7JYWcJfjEVdTsBrcVonIGbGXtDyN95It7FKpyBmx19Fe1tcickZsWyiqbWypVeSW3QO/wkiQK8oZsV8GLtNcLtsvlIkBm4Qt5XKaRsfW0TMxAdwDfElz+AF40MSIJAk2gY+BWSZWgLtJm+9rWyO7ANxLmvwly9UbTAokeB3jvNRF9XfNuA6A1aTBN7IHmGdSBNhK3IGgD4BHgm48fOCYr+cbu64/AGyTIa0ZFXbtOCeRrTKJJ9uAh4EFkq71FPAqsEcKddvM1pNyIn8xU6j7lL3OABySZzfKAcVAY+tFA6+UEPlAo0oLV41d3Jc4EPjEpp2FbntSiGj9BGlGkp+Q6gZ4sc8JamXoNieFVA3rJ4vpEDA/dLuTQlYGxwsKfEYqPzZjeVUXwIaCgX6bcLMl6ihYzOTU8JiUIWI4mQBNrMjmYkI2DDZmcBB4B1hj/wVI6PYpiqIoiqKYVvMvqiOIQmdqXhcAAAAASUVORK5CYII=" />
+                                                </defs>
+                                            </svg>
+                                        </button>
+                                    </form>
+            </div>
+        </div>
+
+        <script>
+            $(function () {
+                $('textarea').on('keyup keypress', function () {
+                    $(this).height(0);
+                    $(this).height(this.scrollHeight);
+                });
+
+
+                $('#submit').on('click', function () {
+                    var data = JSON.parse(sessionStorage.getItem('user'))
+                    if (data) {
+                        data.msg = $('#msgArea').val()
+                        $.ajax({
+                            url: "/article/inside/<%= tag%>",
+                            type: "POST",
+                            // contentType: "application/json; charset=utf-8",
+                            data: data,
+                            success: function (res) {
+                                location.reload()
+                            },
+                            error: function () {
+                                alert("系統錯誤!")
+
+                            }
+                        })
+                    }
+                })
+
+                $('#like').on('click', function () {
+                    //按讚
+                    // console.log(user)
+                    var userName = JSON.parse(sessionStorage.getItem('user'))
+                    if (userName) {
+                        $.ajax({
+                            url: "/article/inside/<%= tag%>/likes",
+                            type: "POST",
+                            data: userName,
+                            success: function (res) {
+                                location.reload()
+                            }
+                        })
+                    }
+                })
+            });
+        </script>
+</body>
+
+</html>

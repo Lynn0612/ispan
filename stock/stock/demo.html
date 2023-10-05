@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        #ha {
+            margin: auto;
+            height: 1000px;
+            width: 800px;
+        }
+
+        /* canvas {
+            /* background-color: rgba(0, 0, 255, 0.1); */
+        }
+
+        */
+    </style>
+</head>
+
+<body>
+
+    <div id="ha">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        // Chart.defaults.backgroundColor = '#ff0000';
+        const ctx = document.getElementById('myChart');
+        const labels = ['1月份', '2月份', '3月份', '4月份', '5月份', '6月份', '7月份', '8月份', '9月份', '10月份', '11月份', '12月份'];  // 设置 X 轴上对应的标签
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: '成交量',
+                data: [900, 600, 800, 810, 560, 550, 40, 100, 500, 2000, 100, 1000],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)', // 设置线的颜色
+                tension: 0.1
+            },
+            {
+                label: '成交量',
+                data: [100, 800, 600, 510, 660, 530, 400, 50, 500, 2000, 100, 1000],
+                fill: false,
+                borderColor: 'rgb(255, 192, 192)', // 设置线的颜色
+                tension: 0.1
+            }
+            ]
+        };
+        const config = {
+            type: 'line', // 设置图表类型
+            data: data,
+        };
+        const myChart = new Chart(ctx, config);
+    </script>
+
+</body>
+
+</html>

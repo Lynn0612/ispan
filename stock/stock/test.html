@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="Optional_stock_btn">刪除</button>
+    <script>
+        Optional_stock_btn.onclick = function () {
+            var data = JSON.stringify({
+                StockNumber: 2330,
+                CollectState: 1,
+                uid: 100
+            })
+            console.log(data)
+            $.ajax({
+                url: 'http://localhost:2407/update',
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: data,
+                success: function (res) {
+                    console.log(res)
+
+                }, error: function (res) {
+                    console.log(res)
+                },
+
+
+            })
+        }
+    </script>
+</body>
+
+</html>

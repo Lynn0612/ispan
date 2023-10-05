@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            "positionClass": "toast-top-center ",
+            "timeOut": "2000"
+        }
+    </script>
+    <title>登入</title>
+
+</head>
+
+<body>
+
+    <!-- 遮罩div -->
+    <div class="overlay" id="overlay"></div>
+    <!-- 標題主選單 -->
+    <header class="header">
+        <nav>
+            <div class="navbar-left nav-links">
+                <form>
+                    <a href="/" id="carzy"><img src="/images/LOGO.png" id="carzy"></a>
+                    <b>瘋資股</b>
+                </form>
+            </div>
+            <div class="navbar-right nav-links">
+                <!-- 手機屏幕顯示 -->
+                <div>
+                    <img src="/images/Hamburger.png" class="container clickdown clickbtn" onclick="myFunction()">
+                    <div id="myclickdown" class="clickdown-content">
+                        <a class="links" href="/article">精選文章</a>
+                        <a class="links" href="/stock">股市消息</a>
+                        <a class="links" href="/about">關於我</a>
+                    </div>
+                </div>
+                <!-- 手機螢幕顯示 -->
+
+                <button id="showPopupBtn" class="btn login">登入/註冊</button>
+                <button id="logoutBtn" class="btn logout">登出</button>
+                <form>
+                    <!-- <a class="links member" id="member" href="/member"><i class="fa fa-fw fa-user"></i></a> -->
+                    <a class="links" href="/article">精選文章</a>
+                    <a class="links" href="/stock">股市消息</a>
+                    <a class="links" href="/about">關於我</a>
+                </form>
+                <!-- 小螢幕顯示 -->
+                <div class="dropdown">
+                    <div id="mySidenav" class="sidenav">
+                        <!-- <a class="links member" href="/member" id="member">會員中心</a> -->
+                        <a class="links" href="/article" id="projects">精選文章</a>
+                        <a class="links" href="/stock" id="stock">股市消息</a>
+                        <a class="links" href="/about" id="about">關於我</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- 登入註冊彈出視窗 -->
+    <div class="login-popup" id="loginPopup">
+        <img src="/images/Cancel.png" id="closePopupBtn" class="close-btn">
+        <div class="form-wrap">
+            <div class="tabs">
+                <h3 class="signup-tab"><a href="#signup-tab-content">註冊</a></h3>
+                <h3 class="login-tab"><a class="active" href="#login-tab-content">登入</a></h3>
+            </div><!--.tabs-->
+            <div class="tabs-content">
+                <!-- 註冊畫面 -->
+                <div id="signup-tab-content">
+                    <form class="signup-form" action="/register" method="post" id="registrationForm" novalidate>
+                        <label for="name">姓名:</label>
+                        <input type="text" class="input" name="name" id="name" autocomplete="off" placeholder="請輸入姓名"
+                            required>
+                        <span></span>
+                        <label for="account">帳號:</label>
+                        <input type="text" class="input" name="account" id="account" autocomplete="off"
+                            placeholder="請輸入帳號" pattern="[A-Za-z0-9]{4,}" required>
+                        <span></span>
+                        <label for="password">密碼:</label>
+                        <input type="password" class="input" name="password" id="password" autocomplete="off"
+                            placeholder="請輸入密碼英文含數字六位以上" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$" required>
+                        <span></span>
+                        <!-- <label for="mail">信箱:</label>
+                        <input type="mail" class="input" name="mail" id="mail" autocomplete="off"
+                            placeholder="請輸入信箱" pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$" required>
+                        <span></span> -->
+                        <input type="submit" class="btn btn-center" value="註冊">
+                    </form><!--.login-form-->
+                </div><!--.signup-tab-content-->
+                <!-- 登入畫面 -->
+                <div id="login-tab-content" class="active">
+                    <form class="login-form" id="loginForm" action="/login" method="post">
+                        <label for="account">帳號:</label>
+                        <input type="text" class="input" name="account" id="useraccount" autocomplete="off"
+                            placeholder="請輸入帳號"><br>
+                        <label for="password">密碼:</label>
+                        <input type="password" class="input" name="password" id="userpassword" autocomplete="off"
+                            placeholder="請輸入密碼">
+                        <p class="forget"><a href="/forget">忘記密碼</a></p>
+                        <!-- <div class="help-text"></div> -->
+                        <!--.help-text-->
+                        <input type="submit" class="btn btn-center" value="登入">
+                    </form><!--.login-form-->
+                </div><!--.login-tab-content-->
+            </div><!--.tabs-content-->
+        </div><!--.form-wrap-->
+    </div>
+    <!-- 內容 -->
+
+
+
+    <!--內容  -->
+
+    <div class="footer">
+        投資必有風險，您應該尋求具有許可的專業財經顧問建議，並確保在決定進行交易之前具備風險承受能力、相關經驗和知識，請詳閱公開說明書。版權所有 © 2023 瘋資股股份有限公司
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            //--------------------註冊登入切換------------------------
+            const showPopupBtn = document.getElementById("showPopupBtn");
+            const overlay = document.getElementById("overlay");
+            const loginPopup = document.getElementById("loginPopup");
+            const closePopupBtn = document.getElementById("closePopupBtn");
+
+            showPopupBtn.addEventListener("click", () => {
+                overlay.style.visibility = "visible";
+                loginPopup.style.visibility = "visible";
+            });
+
+            closePopupBtn.addEventListener("click", () => {
+                overlay.style.visibility = "hidden";
+                loginPopup.style.visibility = "hidden";
+            });
+
+            jQuery(document).ready(function ($) {
+                tab = $('.tabs h3 a');
+                tab.on('click', function (event) {
+                    event.preventDefault();
+                    tab.removeClass('active');
+                    $(this).addClass('active');
+
+                    tab_content = $(this).attr('href');
+                    $('div[id$="tab-content"]').removeClass('active');
+                    $(tab_content).addClass('active');
+                });
+            });
+            //--------------------註冊登入切換------------------------
+            // document.getElementsByTagName('input').on('chick', function (){
+            //     var accountPattern = /[A-Za-z0-9]{4,}/;
+            // if (!accountPattern.test()) {
+            //     alert('請輸入A-Za-z0-9,4位數以上。');
+            //     account.focus(); // 聚焦到帳號
+            //     return; // 阻止表單提交
+            // }
+            // registrationForm.submit();
+            // })
+
+
+
+
+
+            // 抓取使用者資訊
+            let user = sessionStorage.getItem('user');
+
+            console.log(user);
+
+
+            if (user) {
+                $('#logoutBtn').css('display', 'block');
+                $('#showPopupBtn').css('display', 'none');
+                $('.member').css('display', 'block');
+
+            } else {
+                $('#showPopupBtn').css('display', 'block');
+                $('.member').css('display', 'none');
+            }
+
+            document.getElementById('registrationForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const account = document.getElementById('account').value;
+                const password = document.getElementById('password').value;
+                // const mail = document.getElementById('mail').value;
+
+                // 註冊發送
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, account, password })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // 處理服務器
+                        if (data.success) {
+                            toastr.success('註冊成功!');
+                            window.location.reload();
+
+                            // 重新導向或跳轉
+                        } else {
+                            toastr.warning('重複註冊. 請再重試一次.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+
+
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const account = document.getElementById('useraccount').value;
+                const password = document.getElementById('userpassword').value;
+
+                // 登入
+                fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ account, password })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // 處理服務器的響應
+                        if (data.success) {
+                            $('#showPopupBtn').css('display', 'none');
+                            $('#logoutBtn').css('display', 'block');
+                            $('#closePopupBtn').click();
+                            $('.member').css('display', 'block');
+                            sessionStorage.setItem('user', JSON.stringify({ uid: data.uid, name: data.name, account: data.account }));
+                            toastr.success('登入成功!');
+                            window.setTimeout(function () {
+                                window.location.reload();
+                            }, 3000)
+                            // 重新導向
+                        } else {
+                            toastr.error('帳號或密碼錯誤,請再重新輸入');
+                            $('#showPopupBtn').click();
+                            $('.member').css('display', 'none');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+
+            $('#logoutBtn').click(function () {
+                sessionStorage.removeItem('user'); // 清除令牌
+                toastr.success("登出成功");
+                window.setTimeout(function () {
+                    window.location.href = '/';
+                }, 2000) // 導回首頁
+                $.ajax({
+                    url: "/reset-session",
+                    type: "GET"
+                })
+            })
+
+        })
+
+        // ------手機屏幕顯示-----
+        function myFunction(x) {
+            // x.classList.toggle("change");
+            document.getElementById("myclickdown").classList.toggle("show");
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.clickbtn')) {
+                var clickdowns = document.getElementsByClassName("clickdown-content");
+                var i;
+                for (i = 0; i < clickdowns.length; i++) {
+                    var openDropdown = clickdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

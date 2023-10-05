@@ -1,0 +1,21 @@
+中文            英文
+
+排名            Rank
+代號	        StockNumber
+股名	        StockName
+股價		    StockPrice
+成交量		    ClinchNumber
+漲幅		    UpDown
+漲幅金額	    UpDownPrice
+公司產業	    CompanyIndustry
+股本(億)	    CapitalStock
+市值(億)	    MarketValue
+股票股利	    StockDividends
+現金股利	    CashDividend
+除息日期	    DividendDate
+本益比		    Eps
+股價淨值比	    PBRatio
+近一年EPS	    EpsYear
+負債比率	    DebtRatio
+資產報酬率 (ROA) ROA
+股東權益報酬率(ROE) ROE

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/member.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;400;800&display=swap" >
+    <!-- <script src="/forget.js"></script> -->
+    <title>瘋資股 - 忘記密碼</title>
+</head>
+
+<body style="background-color: #0e0e0e;">
+    <%- include('login.ejs') %>
+        <main class=" container-location">
+            <div class="container ">
+                <div class="row justify-content-center ">
+                    <!-- <div class="col-lg-6"> -->
+                    <div class="card shadow-lg border-0  mt-5 container-bg">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-2"><b>忘記密碼</b></h3>
+                        </div>
+                        <div class="card-body textbg">
+                            <form>
+                                <div class="text-center form-floating mb-3">
+                                    請輸入您註冊時填的信箱
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <form action="/forget" method="post">
+                                        信箱：<input type="mail"  required><br><br>
+                                        <input type="submit" class="btn btn-location" value="發送郵件" >
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </main>
+
+</body>
+<script>
+
+</script>
+
+
+</html>

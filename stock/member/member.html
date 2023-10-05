@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../public/css/member.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>瘋資股 - 會員中心</title>
+</head>
+
+<body style="background-color: #0e0e0e;">
+
+    <%- include('login.ejs') %>
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-2">會員資料</h3>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-floating mb-3 ">
+                                    <p>姓名:<%= name %>
+                                    </p>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <p>帳號:<%= account %>
+                                    </p>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" placeholder='修改密碼'>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

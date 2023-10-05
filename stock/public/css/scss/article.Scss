@@ -1,0 +1,762 @@
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+$bg_black: #0e0e0e;
+$white: #ffffff;
+$gray: #8e8e8e;
+$font-size: 22px;
+
+
+
+%articleFrame {
+    align-items: center;
+    gap: 8px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 2px 2px 10px 0px #FFF;
+}
+
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+    background: rgb(40, 40, 40);
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(150, 150, 150);
+}
+
+
+
+.article_background {
+    // 底色
+    background: $bg_black;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+// 文章
+.articleBody {
+    /* 文章頁面主體 */
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    width: 60%;
+    margin: 50px auto;
+
+    @include mobile {
+        width: 100%;
+        grid-template-columns: none;
+        // grid-template-rows: auto auto auto;
+        padding: 0;
+        // background-color: aqua;
+        margin: 50px 0;
+    }
+}
+
+// .articleShow {
+// flex: 3;
+// width: 80%;
+// padding: 0;
+// background-color:gray;
+// }
+
+.articleChoose {
+    // 分類標題
+    width: 700px;
+    color: #FFF;
+    margin: 50px auto 0 auto;
+    font-size: 46px;
+    text-align: center;
+
+    @include mobile {
+        margin: 10px 0 25px 0;
+        width: 100%;
+    }
+
+    span {
+        position: relative;
+        text-decoration: none;
+
+        /* Optional: 去除下劃線 */
+        &::before {
+            content: "";
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, rgb(255, 255, 255) 5%, #8E8E8E 100%);
+            position: absolute;
+            right: 0;
+            bottom: -8px;
+            animation: Go2 3.5s infinite alternate cubic-bezier(0.57, 0.35, 0.45, 0.69);
+        }
+
+        &::after {
+            content: "";
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to left, #0E0E0E 5%, #ffffff 100%);
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            animation: Go 3.5s infinite alternate cubic-bezier(0.57, 0.35, 0.45, 0.69);
+        }
+
+    }
+}
+
+@keyframes Go {
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes Go2 {
+    100% {
+        width: 0%;
+    }
+}
+
+.articleBlock {
+    // 文章區塊
+    display: flex;
+    width: 800px;
+    flex-direction: column;
+    // justify-content: center;
+    margin: 50px auto;
+    @extend %articleFrame;
+
+    &>img {
+        width: 70%;
+        height: 150px;
+        border-radius: 16px;
+        object-fit: cover;
+    }
+
+    @include mobile {
+        // width: 500px;
+        width: 95%;
+        margin: 20px auto 30px auto;
+    }
+
+    transition: box-shadow .3s;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 2px 2px 20px 0px #FFF;
+    }
+}
+
+.articleText {
+    /* 文章區塊文字 */
+    width: 80%;
+
+    // padding: 16px;
+    @include mobile {
+        width: 95%;
+    }
+}
+
+.articleTitle {
+    /* 文章標題 */
+    color: #FFF;
+    font-size: 32px;
+    font-weight: bolder;
+    box-shadow: 0px 4px 0px 0px #FFF;
+    padding: 10px;
+    margin: 20px 0 10px 0;
+
+}
+
+.articleSimple {
+    /* 文章簡略內容 */
+    color: #FFF;
+    font-size: 22px;
+    margin: 30px 0 10px 0;
+}
+
+.articleBottom {
+    /* 文章底部 */
+    color: #FFF;
+    font-size: 26px;
+    margin: 5px auto 20px auto;
+    width: 60%;
+    // background-color: blanchedalmond;
+}
+
+// .comshow{
+//     font-size: 38px;
+// }
+
+// .likeshow{
+//     font-size: 38px;
+// }
+
+.leftSide {
+    /* 左側側邊導覽列區塊 */
+    width: 100%;
+    margin: 120px 0 10px auto;
+    display: flex;
+    flex-direction: column;
+    // background-color: brown;
+
+    @include mobile {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        margin: 10px 0 0 0;
+        width: 100%;
+
+
+    }
+}
+
+.sideBtn {
+    /* 側邊導覽列按鈕 */
+    width: 160px;
+    height: 80px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #4d4d4d 0%, rgba(255, 255, 255, 0.00) 100%);
+    backdrop-filter: blur(12.5px);
+    box-shadow: 3px 3px 5px 0px #FFF;
+    margin: 50px auto 10px -100px;
+    cursor: pointer;
+    /* 文字 */
+    color: #FFF;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    transition: all 0.3s;
+
+    @include mobile {
+        margin: 15px auto;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.00) 0%, #4d4d4d 100%);
+        transform: translateY(-10px);
+
+    }
+}
+
+
+// .rightSide {
+//     /* 右側關鍵字搜尋 */
+//     flex: 1;
+// }
+
+// .popKey {
+//     width: 220px;
+//     height: 391px;
+//     flex-shrink: 0;
+//     border-radius: 16px;
+//     opacity: 0.6;
+//     background: #8E8E8E;
+//     backdrop-filter: blur(12.5px);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//內文
+.articleInsideBody {
+    // 內文主體
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: 100px auto 50px auto;
+    padding: 0 100px;
+
+    @extend %articleFrame;
+
+    @include mobile {
+        width: 90%;
+        padding: 0 20px;
+        margin: 80px auto;
+    }
+}
+
+//內文未登入
+.articleFilter {
+    filter: blur(8px);
+    pointer-events: none;
+
+    * {
+        pointer-events: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+}
+
+.centered-lock {
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 位于容器垂直居中 */
+    left: 50%; /* 位于容器水平居中 */
+    transform: translate(-50%, -50%); /* 以自身宽高的一半为偏移量进行调整，使按钮在正中间 */
+    z-index: 1; /* 确保按钮在模糊内容上面 */
+    color: #FFF;
+    font-size: 30px;
+    // background-color: aqua;
+    button{
+        width: 130px;
+        font-size: 24px;
+    }
+  }
+#lockpng{
+width: 120px;
+height: 120px;
+}
+
+
+// #cancel{
+
+// }
+.top-right-button {
+    position: absolute;
+    top: 30px; /* 放置在容器的顶部 */
+    right: 0; /* 放置在容器的右侧 */
+    padding: 10px 20px; /* 添加一些内边距，使按钮更易点击 */
+  }
+
+.articleInsideTitle {
+    // 內文標題
+    width: 100%;
+    // flex-shrink: 0;
+    // background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0px 4px 0px 0px #FFF;
+    color: #FFF;
+    font-size: 36px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 40px 0 0 0;
+
+    @include mobile {
+        // font-size: 34px;
+        margin: 20px 0 0 0;
+    }
+}
+
+.insideTitleTime {
+    //內文標題時間
+    color: #8E8E8E;
+    font-size: 16px;
+    margin-left: auto;
+    font-style: italic;
+}
+
+
+.articleInsideText {
+    // 內文文字區塊
+    color: #FFF;
+    font-size: $font-size;
+
+    p {
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        margin: 50px 0 0 0;
+    }
+
+
+    &>img {
+        width: 100%;
+    }
+
+    // margin: 0 50px;
+    @include mobile {
+        // font-size: 18px;
+    }
+
+}
+
+
+.likesArea {
+    color: #FFF;
+    font-size: 16px;
+    margin-left: auto;
+}
+
+// @keyframes ld-float {
+//     0% {
+//         animation-timing-function: cubic-bezier(0, 0.4, 0.6, 1);
+//         transform: translate(0, 0) scale(0.7);
+//         box-shadow: 0 0 0 rgba(0, 0, 0, .3);
+//     }
+
+//     50% {
+//         animation-timing-function: cubic-bezier(0.4, 0, 1, 0.6);
+//         transform: translate(0, -15%) scale(1);
+//         box-shadow: 0 23% 5% -15% rgba(0, 0, 0, .2)
+//     }
+
+//     100% {
+//         transform: translate(0, 0) scale(0.7);
+//         box-shadow: 0 0 0 rgba(0, 0, 0, .3)
+//     }
+// }
+
+// .likes {
+//     width: 30px;
+
+//     &:hover {
+//         animation: ld-float 1s infinite linear;
+//         ;
+//     }
+// }
+
+.articleInsideMsg {
+    // 內文留言區
+    width: 100%;
+    color: #FFF;
+    font-size: $font-size;
+    box-shadow: 0px -4px 0px 0px #FFF;
+    margin: 0 50px 50px 50px;
+
+    @include mobile {
+        // font-size: 18px;
+    }
+}
+
+.msgBox {
+    //留言
+    margin: 50px 0;
+}
+
+.msgNo {
+    color: #8E8E8E;
+}
+
+// .msgUser {
+//     // 留言使用者名稱
+// }
+
+.msgText {
+    //留言文字
+    margin: 10px 30px;
+    box-shadow: -4px 0px 0px 0px #FFF;
+    padding: 20px;
+    word-break: break-all;
+}
+
+.msgInputBox {
+    // 留言方塊
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 40px;
+    border: 2px solid #FFF;
+
+    &:focus-within {
+        box-shadow: 2px 2px 10px 0px #FFF;
+
+        .msgInput {
+            outline: none;
+        }
+    }
+}
+
+.msgInput {
+    //輸入留言
+    font-size: $font-size;
+    border: none;
+    padding: 15px 10px;
+    color: #FFF;
+    background-color: transparent;
+    flex-grow: 2;
+    margin-left: 20px;
+
+    overflow: hidden;
+    resize: none;
+
+    @include mobile {
+        font-size: 18px;
+    }
+}
+
+
+@keyframes wiggle {
+
+    /* 抖動 */
+    0%,
+    7% {
+        transform: rotateZ(0);
+    }
+
+    15% {
+        transform: rotateZ(-15deg);
+    }
+
+    20% {
+        transform: rotateZ(10deg);
+    }
+
+    25% {
+        transform: rotateZ(-10deg);
+    }
+
+    30% {
+        transform: rotateZ(6deg);
+    }
+
+    35% {
+        transform: rotateZ(-4deg);
+    }
+
+    40%,
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes shake {
+
+    /* 水平抖动 */
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(+1px, 0, 0);
+    }
+
+    30%,
+    70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(+2px, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(-2px, 0, 0);
+    }
+}
+
+@keyframes ld-pulse {
+
+    /* 按壓特效 */
+    0% {
+        animation-timing-function: cubic-bezier(0.3333, 0.3333, 0.3124, 0.6668);
+        transform: scale(0.85);
+    }
+
+    0.5% {
+        animation-timing-function: cubic-bezier(0.0233, -0.3865, 0.6667, 0.6667);
+        transform: scale(1.141);
+    }
+
+    1.5% {
+        animation-timing-function: cubic-bezier(0.2893, 0.354, 0.6158, 0.6958);
+        transform: scale(1.124);
+    }
+
+    11% {
+        animation-timing-function: cubic-bezier(0.2861, 0.4196, 0.6215, 0.7476);
+        transform: scale(0.992);
+    }
+
+    25% {
+        animation-timing-function: cubic-bezier(0.0793, 0.2627, 0.9972, 1.5511);
+        transform: scale(0.887);
+    }
+
+    49.5% {
+        animation-timing-function: cubic-bezier(0.6664, 0.3332, 0.6667, 0.6667);
+        transform: scale(0.85);
+    }
+
+    50% {
+        animation-timing-function: cubic-bezier(0, 0.3522, 1, 0.6686);
+        transform: scale(1.1500000000000001);
+    }
+
+    51% {
+        animation-timing-function: cubic-bezier(0.2668, 0.4036, 0.554, 0.7657);
+        transform: scale(1.1320000000000001);
+    }
+
+    73.5% {
+        animation-timing-function: cubic-bezier(0.2997, 1.0028, 0.6671, 1);
+        transform: scale(0.894);
+    }
+
+    100% {
+        transform: scale(0.85);
+    }
+}
+
+
+
+.msgBtn {
+    //留言按鈕
+    background-color: transparent;
+    border: none;
+    right: 0;
+    animation: wiggle 2s linear infinite;
+    cursor: pointer;
+
+    &:hover {
+        animation: shake 800ms ease-in-out infinite;
+    }
+
+    &:focus {
+        animation: ld-pulse 1s linear;
+        ;
+    }
+}
+
+
+
+// // // like
+// $prime: #ff6e48;
+// $ciRed: #ff00aa;
+// $ciGreen: #46fcb4;
+$ciBlue: #e2e2e2;
+$second: rgb(255, 0, 0);
+
+
+@keyframes dislike {
+    0% {
+        color: $ciBlue;
+        transform: translate(0, 0%);
+    }
+
+    100% {
+        color: $second;
+        transform: translate(0, 300%) scale(0);
+    }
+}
+
+@keyframes like {
+    0% {
+        color: $ciBlue ;
+        transform: translate(0, 0%);
+    }
+
+    100% {
+        color: white;
+        transform: translate(0, -300%) scale(0);
+    }
+}
+
+#like {
+    // width:80px ;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: 150ms all;
+    background-color: lighten(#202a3d, 10%);
+
+    &.dislike {
+        .icon {
+            svg.prime {
+                animation: dislike 550ms forwards ease-in-out;
+            }
+        }
+    }
+
+    &.active {
+        background-color: $ciBlue;
+
+        .counter {
+            color: $second;
+        }
+
+        .icon {
+            svg {
+                color: $second;
+            }
+
+            svg.prime {
+                animation: like 550ms forwards ease-in-out;
+            }
+        }
+    }
+
+    .counter {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+        padding: 10px 5px;
+        transition: 150ms all;
+    }
+
+    .icon {
+        padding: 10px 5px;
+        transition: 150ms all;
+        position: relative;
+        width: 10px;
+        height: 10px;
+
+        svg {
+            color: white;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+
+            &.normal {
+                z-index: 1;
+                opacity: 0.5;
+            }
+
+            &.prime {
+                z-index: 2;
+            }
+        }
+    }
+}

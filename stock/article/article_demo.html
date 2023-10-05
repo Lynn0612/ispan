@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/article.css">
+    <link rel="stylesheet" href="../public/css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;400;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="article_background">
+    <!-- 遮罩div -->
+    <div class="overlay" id="overlay"></div>
+    <!-- 標題主選單 -->
+    <header class="header">
+        <nav class="navbar-left">
+            <div>
+                <a href="/index/index.html"><img src="/images/瘋資股LOGO.png" alt=""></a>
+            </div>
+            <div class="navbar-right nav-links">
+                <form>
+                    <a href="#" id="showPopupBtn" class="btn login">登入/註冊</a>
+                    <a class="links" href="/article/article.html">精選文章</a>
+                    <a class="links" href="/stock/stock.html">股市消息</a>
+                    <a class="links" href="/about/about.html">關於我</a>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 登入註冊彈出視窗 -->
+    <div class="login-popup" id="loginPopup">
+        <img src="/images/Cancel.png" id="closePopupBtn" class="close-btn">
+        <div class="form-wrap">
+            <div class="tabs">
+                <h3 class="signup-tab"><a href="#signup-tab-content">註冊</a></h3>
+                <h3 class="login-tab"><a class="active" href="#login-tab-content">登入</a></h3>
+            </div><!--.tabs-->
+            <div class="tabs-content">
+                <!-- 註冊畫面 -->
+                <div id="signup-tab-content">
+                    <form class="signup-form" action="" method="post">
+                        <input type="text" class="input" id="user_name" autocomplete="off" placeholder="姓名">
+                        <input type="email" class="input" id="user_email" autocomplete="off" placeholder="E-mail">
+                        <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="密碼">
+                        <input type="submit" class="btn btn-center" value="註冊">
+                    </form><!--.login-form-->
+                </div><!--.signup-tab-content-->
+                <!-- 登入畫面 -->
+                <div id="login-tab-content" class="active">
+                    <form class="login-form" action="" method="post">
+                        <input type="text" class="input" id="user_login" autocomplete="off" placeholder="帳號">
+                        <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="密碼">
+                        <p class="forget"><a href="#">忘記密碼</a></p>
+                        <!-- <div class="help-text"></div> -->
+                        <!--.help-text-->
+                        <input type="submit" class="btn btn-center" value="登入">
+                    </form><!--.login-form-->
+                </div><!--.login-tab-content-->
+            </div><!--.tabs-content-->
+        </div><!--.form-wrap-->
+    </div>
+    <!-- 內容 -->
+
+
+
+    <div class="articleBody">
+        <div class="leftSide">
+            <button class="sideBtn">新手教學</button>
+            <button class="sideBtn">技術分析</button>
+            <button class="sideBtn">基本面分析</button>
+            <button class="sideBtn">最新消息</button>
+        </div>
+
+        <div class="articleShow">
+            <div class="articleChoose"><span>全部文章</span></div>
+            <!-- 文章1 -->
+            <div class="articleBlock">
+                <div class="articleText">
+                    <div class="articleTitle">
+                        ETF實戰｜元大美債20年 (00679B) 配息、股價、淨值、殖利率介紹！
+                    </div>
+
+                    <div class="articleSimple">
+                        債券價格下跌似乎總看不到盡頭，但隨著近期通貨膨脹趨緩 、升息即將邁入尾聲，許多投資人都在問：「債券的投資機會是否已經到來？」
+                    </div>
+                </div>
+
+                <img class="articleImg" src="../images/參考圖片/07fe120933d1f069f871ab96f8f63887.jpg" alt="">
+
+                <div class="articleBottom">
+                    <i>24 Comments</i>
+                    <i style="margin-left: 200px;">
+                        <img class="likes" src="../images/Facebook Like.png" alt="">
+                        30 Likes
+                    </i>
+                </div>
+            </div>
+
+            <!-- 文章2 -->
+            <div class="articleBlock">
+                <div class="articleText">
+                    <div class="articleTitle">
+                        ETF實戰｜元大美債20年 (00679B) 配息、股價、淨值、殖利率介紹！
+                    </div>
+
+                    <div class="articleSimple">
+                        債券價格下跌似乎總看不到盡頭，但隨著近期通貨膨脹趨緩 、升息即將邁入尾聲，許多投資人都在問：「債券的投資機會是否已經到來？」
+                    </div>
+                </div>
+
+                <img class="articleImg" src="../images/參考圖片/07fe120933d1f069f871ab96f8f63887.jpg" alt="">
+
+                <div class="articleBottom">
+                    <i>24 Comments</i>
+                    <i style="margin-left: 200px;">
+                        <img class="likes" src="../images/Facebook Like.png" alt="">
+                        30 Likes
+                    </i>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="rightSide">
+            <div class="popKey"></div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        投資必有風險，您應該尋求具有許可的專業財經顧問建議，並確保在決定進行交易之前具備風險承受能力、相關經驗和知識，請詳閱公開說明書。版權所有 © 2023 瘋資股股份有限公司
+    </div>
+</body>
+<script>
+    //--------------------註冊登入------------------------
+    const showPopupBtn = document.getElementById("showPopupBtn");
+    const overlay = document.getElementById("overlay");
+    const loginPopup = document.getElementById("loginPopup");
+    const closePopupBtn = document.getElementById("closePopupBtn");
+
+    showPopupBtn.addEventListener("click", () => {
+        overlay.style.visibility = "visible";
+        loginPopup.style.visibility = "visible";
+    });
+
+    closePopupBtn.addEventListener("click", () => {
+        overlay.style.visibility = "hidden";
+        loginPopup.style.visibility = "hidden";
+    });
+    jQuery(document).ready(function ($) {
+        tab = $('.tabs h3 a');
+        tab.on('click', function (event) {
+            event.preventDefault();
+            tab.removeClass('active');
+            $(this).addClass('active');
+
+            tab_content = $(this).attr('href');
+            $('div[id$="tab-content"]').removeClass('active');
+            $(tab_content).addClass('active');
+        });
+    });
+    //----------------------註冊登入--------------------------
+</script>
+
+
+
+
+</html>

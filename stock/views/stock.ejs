@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>瘋資股 - 股市消息</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/stock.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;400;800&display=swap" rel="stylesheet">
+    <!-- 圖表套件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- 圖表套件 -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+</head>
+
+<body class="stock_background ">
+    <%- include('login.ejs') %>
+    <!-- 遮罩div -->
+    <!-- 標題主選單 -->
+    <!-- 登入註冊彈出視窗 -->
+                <!-- 註冊畫面 -->
+                <!-- 登入畫面 -->      
+    <!-- 內容 -->
+
+    <!-- 加入自選股 -->
+    <div id="addOptional_stock" class="addOptional_stock">
+        <div id="CloseBtn" class="CloseBtn"></div>
+        <div id="addOptional_stock_Content">
+            <div class="title">-</div>
+            <hr>
+            <div class="content">
+                <div class="StockContent">
+                    <div>股價</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>成交量</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>漲幅</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>公司產業</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>股本(億)</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>市值(億)</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>現金股利</div>
+                    <div>-</div>
+                </div>
+                <div class="StockContent">
+                    <div>除息日期</div>
+                    <div>-</div>
+                </div>
+            </div>
+        </div>
+        <button id="Optional_stock_btn"></button>
+    </div>
+
+
+    <!-- 股票消息上方 -->
+
+    <div class="stock_top">
+        <div class="stock_left">
+            <span class="BroadMarket stock_partner">大盤指數</span>
+            <div id="top_chart">
+                <canvas id="myChart1"></canvas>
+            </div>
+        </div>
+        <div class="stock_right">
+            <!-- 搜尋列 -->
+            <div class="stock_search">
+                <select id="stock_search_select" class="stock_search_input" placeholder="請輸入股票代碼">
+                    <option value="">請選擇股票代碼</option>
+
+                </select>
+                <button class="stock_search_btn">
+                    <img class="stock_search_img" src="/images/Search.png" alt="">
+                </button>
+            </div>
+            <!-- 自選股 -->
+            <div class="optional_stock">
+                <table>
+                    <tr>
+                        <th colspan="1" class="stock_partner">自選股</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>編號</th>
+                        <th>代碼</th>
+                        <th>股名</th>
+                        <th>股價</th>
+                        <th>成交量</th>
+                        <th>漲幅</th>
+                    </tr>
+                    <tr id="optional_stock">
+                        <td style="width: 100%; margin: auto; margin-top: 50px;"> 尚未登入,請先登入</td>>
+                        <!-- <td><button class="deleteStock"></button></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td> -->
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>>
+
+    <!-- //排名詳細 -->
+    <div id="RankDetail" class="RankDetail">
+        <div id="RankCloseBtn" class="CloseBtn"></div>
+        <div id="RankDetail_title" class="title">今日成交量前五名</div>
+        <hr>
+        <div class="tr">
+            <div>名次</div>
+            <div>代碼</div>
+            <div>股名</div>
+            <div>股價</div>
+            <div>成交量</div>
+            <div>漲幅</div>
+        </div>
+
+        <div id="tdRankDetail">
+
+        </div>
+
+
+    </div>
+
+    <!-- 排名 -->
+    <div class="rank">
+        <div class="rank_five">今日成交量前五名</div>
+        <div class="rank_five">今日漲幅前五名</div>
+        <div class="rank_five">今日跌幅前五名</div>
+        <div class="rank_five">今日成交金額前五名</div>
+    </div>
+
+    <!-- 各股比較 -->
+    <div class="stock_center">
+        <div class="Compare">各股比較</div>
+    </div>
+
+    <div class="stock_pk">
+        <div class="stock_search">
+
+            <select name="" id="stock_pk_select" class="stock_search_input">
+                <option value="">請選擇股票代碼</option>
+                <div></div>
+                <!-- <option value=""></option> -->
+
+            </select>
+        </div>
+        <div class="pk">PK</div>
+        <div class="stock_search">
+            <select name="" id="stock_pk_select2" class="stock_search_input">
+                <option value="">請選擇股票代碼</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div id="stock_pk_2" class="stock_pk_2">
+        <div class="stock_pk_2_top">
+            <div class="left"></div>
+            <div id="stock_pk_2_top_center0" class="center">
+                <div class="top">股票代號-</div>
+                <div class="bottom">-</div>
+            </div>
+            <div id="stock_pk_2_top_right0" id="" class="right">
+                <div class="top">股票代號-</div>
+                <div class="bottom">-</div>
+            </div>
+        </div>
+
+        <div class="stock_pk_2_center">
+            <div class="left">
+                <div class="left1">公司產業</div>
+                <div class="left1">股本(億)</div>
+                <div class="left1">市值(億)</div>
+            </div>
+            <div id="stock_pk_2_center0" class="center">
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+            </div>
+            <div id="stock_pk_2_right0" class="right">
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+            </div>
+        </div>
+        <div class="stock_pk_2_center">
+            <div class="left">
+                <div class="left1">本益比</div>
+                <div class="left1">股票淨值比</div>
+                <div class="left1">近一年EPS</div>
+            </div>
+            <div id="stock_pk_2_center1" class="center">
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+            </div>
+            <div id="stock_pk_2_right1" class="right">
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+            </div>
+        </div>
+        <div class="stock_pk_2_center">
+            <div class="left">
+                <div class="left1">股票股利</div>
+                <div class="left1">現金股利</div>
+                <div class="left1">除息日期</div>
+            </div>
+            <div id="stock_pk_2_center2" class="center">
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+            </div>
+            <div id="stock_pk_2_right2" class="right">
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+            </div>
+        </div>
+        <div class="stock_pk_2_center">
+            <div class="left left_bottom">
+                <div class="left1">負債比率</div>
+                <div class="left1">股價淨值比</div>
+                <div class="left1">股東權益報酬率 (ROE)</div>
+            </div>
+            <div id="stock_pk_2_center3" class="center">
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+                <div class="center1">-</div>
+            </div>
+            <div id="stock_pk_2_right3" class="right right_bottom">
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+                <div class="right1">-</div>
+            </div>
+        </div>
+    </div>
+    <div class="Transaction_volume_past_year stock_partner">近一年成交量</div>
+    <div id="ha">
+        <canvas id="myChart" style="background-color: rgba(255, 255, 255, 0.1);"></canvas>
+    </div>
+
+
+
+    
+
+
+
+    <script>
+
+    </script>
+    <script src="/javascript/stock.js"></script>
+</body>
+
+</html>

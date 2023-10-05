@@ -1,0 +1,641 @@
+  /* 背景 */
+  * {
+      background: #0E0E0E;
+
+  }
+
+  /* logo圖 */
+  .c_logo {
+      width: 100px;
+      height: 82px;
+      flex-shrink: 0;
+      position: relative;
+
+
+  }
+
+  /* 灰色背景框框 */
+  .c2_background {
+      width: 100%;
+      height: 212px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.10);
+      box-shadow: 0px 4px 4px 0px rgba(158, 130, 240, 0.01);
+      position: relative;
+      top: 150px;
+      display: flex;
+
+  }
+
+  /* 創立理念 */
+  .c_text1 {
+      font-weight: 400;
+      /* Regular 400 */
+      font-size: 30px;
+      top: 60px;
+      position: relative;
+      color: aliceblue;
+      background: transparent;
+      margin: 5px;
+      padding: 10px;
+      top: 50px;
+      right: -200px;
+    
+
+
+
+  }
+
+  /* 斜底線 */
+  .c_line {
+      font-weight: 400;
+      /* Regular 400 */
+      font-size: 15px;
+      position: relative;
+      color: aliceblue;
+      background: transparent;
+      margin: 5px;
+      padding: 10px;
+      top: 120px;
+      right: -55px;
+      border-top: 2px solid #FFF;
+      width: 100px;
+      
+
+
+
+  }
+
+  /* 內容 */
+  .c_text2 {
+      font-weight: 200;
+      /* Regular 400 */
+      font-size: 16px;
+      position: relative;
+      color: aliceblue;
+      width: 850px;
+      background: transparent;
+      top: 60px;
+      right: -200px;
+      width: 700px;
+
+
+  }
+
+
+  /* 字型 */
+  body {
+      font-family: 'Noto Sans TC', sans-serif;
+  }
+
+
+
+
+
+
+
+
+
+  /* 團隊成員 */
+  .c_text3 {
+      font-weight: 400;
+      /* Regular 400 */
+      right: -200px;
+      font-size: 30px;
+      top: 60px;
+      position: relative;
+      color: aliceblue;
+      background: transparent;
+
+
+  }
+
+  /* 團隊成員斜底線 */
+  .c_line1 {
+      font-weight: 400;
+      /* Regular 400 */
+      right: -200px;
+      font-size: 30px;
+      top: 70px;
+      position: relative;
+      color: aliceblue;
+      background: transparent;
+      border-top: 2px solid #FFF;
+      width: 130px;
+  }
+
+
+
+
+
+
+
+
+  /* 團隊成員框框div */
+  /* 父容器，用于包装三个框 */
+  .c_container {
+      display: flex;
+      justify-content: space-between;
+      /* 将子项平均分布在容器内 */
+      width: 100%;
+      /* 使容器占据整个屏幕宽度 */
+      padding: 0 5%;
+      /* 可选的左右边距 */
+      box-sizing: border-box;
+      /* 让边距不增加容器宽度 */
+      position: absolute;
+  }
+
+
+
+  /* 團隊成員框框 */
+
+  /* 第一個框框 */
+
+  /* 外大框 */
+  .c_box {
+      width: 250px;
+      height: 428px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.25);
+      left: 40px;
+      position: relative;
+
+
+  }
+
+  /* 外大圓 */
+  .c_circle {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      fill: #0E0E0E;
+      stroke-width: 1px;
+      stroke: #FFF;
+      filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.25));
+      border-radius: 100px;
+      position: relative;
+      top: 30px;
+      right: -30px;
+  }
+
+  /* 內部照片限制 */
+  .c_img {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      border: 1px solid #FFF;
+      background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+      border-radius: 100px;
+      position: relative;
+      top: 10px;
+      right: -10px;
+      justify-content: center;
+      /* 水平居中 */
+      overflow: hidden;
+      /* 隐藏容器外部超出的部分 */
+
+  }
+
+  /* 照片 */
+  .c_img img {
+      max-width: 100%;
+      /* 图像的最大宽度为容器宽度 */
+      max-height: 200%;
+      /* 图像的最大高度为容器高度 */
+      height: auto;
+      /* 让图像按比例缩放以适应容器 */
+      width: auto;
+      /* 让图像按比例缩放以适应容器 */
+      position: absolute;
+      /* 使图像脱离文档流 */
+      right: -0.5px;
+  }
+
+  /* 標題文字 */
+  .c_texttitle {
+      font-weight: 200;
+      /* Regular 400 */
+      font-size: 20px;
+      top: 60px;
+      position: relative;
+      color: aliceblue;
+      width: 850px;
+      background: transparent;
+      right: -20px;
+  }
+
+  /* 文字內文 */
+  .c_textcontent {
+      font-weight: 200;
+      /* Regular 400 */
+      font-size: 15px;
+      top: 50px;
+      position: relative;
+      color: aliceblue;
+      width: 850px;
+      background: transparent;
+      right: -20px;
+  }
+
+
+
+
+
+
+
+  /* 第二個框框 */
+  /* 外大框 */
+  .c_box1 {
+      width: 250px;
+      height: 428px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.25);
+      left: 1px;
+      position: relative;
+
+  }
+
+  /* 外大圓 */
+  .c_circle1 {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      fill: #0E0E0E;
+      stroke-width: 1px;
+      stroke: #FFF;
+      filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.25));
+      border-radius: 100px;
+      position: relative;
+      top: 30px;
+      right: -20px;
+  }
+
+  /* 內部照片限制 */
+  .c_img1 {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      border: 1px solid #FFF;
+      background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+      border-radius: 100px;
+      position: relative;
+      top: 10px;
+      right: -10px;
+      justify-content: center;
+      /* 水平居中 */
+      overflow: hidden;
+      /* 隐藏容器外部超出的部分 */
+
+  }
+
+  /* 照片 */
+  .c_img1 img {
+      max-width: 150%;
+      /* 图像的最大宽度为容器宽度 */
+      max-height: 100%;
+      /* 图像的最大高度为容器高度 */
+      height: auto;
+      /* 让图像按比例缩放以适应容器 */
+      width: auto;
+      /* 让图像按比例缩放以适应容器 */
+      position: absolute;
+      /* 使图像脱离文档流 */
+  }
+
+
+
+
+
+
+  /* 第三個框框 */
+  /* 外大框 */
+  .c_box2 {
+      width: 250px;
+      height: 428px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.25);
+      left: -40px;
+      position: relative;
+  }
+
+  /* 外大圓 */
+  .c_circle2 {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      fill: #0E0E0E;
+      stroke-width: 1px;
+      stroke: #FFF;
+      filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.25));
+      border-radius: 100px;
+      position: relative;
+      top: 30px;
+      right: -20px;
+  }
+
+  /* 內部照片限制 */
+  .c_img2 {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      border: 1px solid #FFF;
+      background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+      border-radius: 100px;
+      position: relative;
+      top: 10px;
+      right: -10px;
+      justify-content: center;
+      /* 水平居中 */
+      overflow: hidden;
+      /* 隐藏容器外部超出的部分 */
+
+  }
+
+  /* 照片 */
+  .c_img2 img {
+      max-width: 100%;
+      /* 图像的最大宽度为容器宽度 */
+      max-height: 100%;
+      /* 图像的最大高度为容器高度 */
+      height: auto;
+      /* 让图像按比例缩放以适应容器 */
+      width: auto;
+      /* 让图像按比例缩放以适应容器 */
+      position: absolute;
+      /* 使图像脱离文档流 */
+  }
+
+
+  /* 第四個框框
+  /* 外大框 */
+  /* .c_box3 {
+      width: 310px;
+      height: 428px;
+      flex-shrink: 0;
+      left: 500px;
+      border-radius: 40px;
+      position: relative;
+      box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.25);
+
+  } */
+  */
+  /* 外大圓 */
+
+  /* .c_circle3 {
+      width: 219px;
+      height: 219px;
+      flex-shrink: 0;
+      fill: #0E0E0E;
+      stroke-width: 1px;
+      stroke: #FFF;
+      filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.25));
+      border-radius: 100px;
+      position: relative;
+      top: 30px;
+      right: -200px;
+  } */
+
+  /* 內部照片限制 */
+  /* .c_img3 {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      border: 1px solid #FFF;
+      background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+      border-radius: 100px;
+      position: relative;
+      top: 20px;
+      right: -25px;
+      justify-content: center;
+      /* 水平居中 */
+  /* overflow: hidden; */
+  /* 隐藏容器外部超出的部分 */
+
+  /* } */
+
+  /* 照片 */
+  /* .c_img3 img {
+      max-width: 100%;
+      /* 图像的最大宽度为容器宽度 */
+  /* max-height: 150%; */
+  /* 图像的最大高度为容器高度 */
+  /* height: auto; */
+  /* 让图像按比例缩放以适应容器 */
+  /* width: auto; */
+  /* 让图像按比例缩放以适应容器 */
+  /* position: absolute; */
+  /* 使图像脱离文档流 */
+  /* right: -10px; */
+  /* } */
+
+
+
+  /* 第五個框框 */
+  /* 外大框 */
+  /* .c_box4 {
+      width: 310px;
+      height: 428px;
+      flex-shrink: 0;
+      left: 600px;
+      border-radius: 40px;
+      position: relative;
+      box-shadow: 2px 2px 10px 0px rgba(255, 255, 255, 0.25);
+      grid-area: c_box4;
+  } */
+
+  /* 外大圓 */
+  /* .c_circle4 {
+      width: 219px;
+      height: 219px;
+      flex-shrink: 0;
+      fill: #0E0E0E;
+      stroke-width: 1px;
+      stroke: #FFF;
+      filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.25));
+      border-radius: 100px;
+      position: relative;
+      top: 30px;
+      right: -330px;
+  } */
+
+  /* 內部照片限制 */
+  /* .c_img4 {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      border: 1px solid #FFF;
+      background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+      border-radius: 100px;
+      position: relative;
+      top: 20px;
+      right: -20px;
+      justify-content: center;
+      /* 水平居中 */
+  /* overflow: hidden; */
+  /* 隐藏容器外部超出的部分 */
+  /* 
+  } */
+
+  /* 照片 */
+  /* .c_img4 img {
+      max-width: 300%;
+      /* 图像的最大宽度为容器宽度 */
+  /* max-height: 300%;
+      /* 图像的最大高度为容器高度 */
+  /* height: auto; */
+  /* 让图像按比例缩放以适应容器 */
+  /* width: auto; */
+  /* 让图像按比例缩放以适应容器 */
+  /* position: absolute; */
+  /* 使图像脱离文档流 */
+  /* right: -100px;
+      top: 5px
+  } */
+
+  /* 聯絡我們 */
+  .c_contactme {
+      font-weight: 800;
+      /* Regular 400 */
+      /* right: 0px; */
+      font-size: 30px;
+      top: 40px;
+      position: relative;
+      color: rgb(16, 116, 203);
+      background-color: red;
+
+  }
+
+  .c_contact {
+      font-weight: 800;
+      color: aliceblue;
+      right: -500px;
+      font-size: 30px;
+      position: relative;
+
+  }
+
+
+  /* 聯絡我們的底線 */
+  .c_buttonline {
+      font-weight: 800;
+      /* Regular 400 */
+      right: -500px;
+      font-size: 13px;
+      top: 20px;
+      position: relative;
+      color: #FFF;
+      background: transparent;
+      border-top: 2px solid #FFF;
+      width: 130px;
+  }
+
+  /* 聯絡我們-大框框 */
+  .square_box {
+      display: flex;
+  }
+
+  /* 第一及第二排框框 */
+  /* 聯絡我們框框 */
+  .c_square {
+      width: 250px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      border: 2px solid #FFF;
+      right: -130px;
+      position: relative;
+      line-height: 52px;
+      text-indent: 20px;
+      color: #FFF;
+
+  }
+
+  .c_square1 {
+      width: 424px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      border: 2px solid #FFF;
+      right: -160px;
+      position: relative;
+      line-height: 52px;
+      text-indent: 20px;
+      color: #FFF;
+
+  }
+
+  /* 第三排框框 */
+  .c_square2 {
+      width: 880px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      border: 2px solid #FFF;
+      right: -130px;
+      position: relative;
+      line-height: 52px;
+      text-indent: 20px;
+      color: #FFF;
+  }
+
+  /* 第四排方框 */
+  .c_square3 {
+      width: 880px;
+      height: 300px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      border: 2px solid #FFF;
+      right: -130px;
+      position: relative;
+      line-height: 52px;
+      text-indent: 20px;
+      color: #FFF;
+  }
+
+  /* 按鈕 */
+  .c_button {
+      width: 102px;
+      height: 48px;
+      flex-shrink: 0;
+      position: relative;
+      right: -500px;
+      border-radius: 40px;
+      background: linear-gradient(90deg, #0E0E0E 0%, #FFF 100%);
+      box-shadow: 2px 2px 10px 0px #FFF;
+  }
+
+
+  /* 最下面的底線 */
+
+
+  .deepline {
+      width: 100%;
+      color: #FFF;
+      font-weight: 400;
+      /* Regular 400 */
+      right: -50px;
+      font-size: 30px;
+      margin: auto;
+      position: relative;
+      color: aliceblue;
+      background: transparent;
+
+
+
+  }
+
+  .buttontext {
+      color: #FFF;
+      font-family: ABeeZee;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      border-top: 2px solid #f1eeee;
+      padding-top: 40px;
+      text-align: center;
+  }

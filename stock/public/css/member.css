@@ -1,0 +1,42 @@
+   /* 導入字型 */
+body {
+   background-color: #0e0e0e;
+   color: #ffffff;
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .container-location{
+    margin-top: 40px;
+  }
+  .container-bg{
+    border-radius: 20px !important;
+    backdrop-filter: blur(15px);
+  }
+  .textbg{
+   background-color: #8e8e8e ;
+   border-radius: 20px;
+   backdrop-filter: blur(15px);
+  }
+.text-location{
+  margin-left: 10px;
+}
+
+
+  #changePasswordForm .passcolor {
+   padding: 10px 0;
+   font-size: 16px;
+   color: #0e0e0e !important;
+   outline: none;
+   background: transparent;
+ }
+  form input {
+   padding: 10px 0;
+   border: none;
+   border-bottom: 1px solid #FFFFFF;
+   outline: none;
+   background: transparent;
+ }
+
+ .btn-location{
+  margin: 20px 120px 0px 120px;
+ }
